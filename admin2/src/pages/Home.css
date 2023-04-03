@@ -1,0 +1,49 @@
+
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+.container2 {
+    display: grid; 
+    grid-template-columns: 0.4fr 1.7fr 0.9fr; 
+    grid-template-rows: 0.2fr 1.6fr 1.2fr; 
+
+    gap: 0px 0px; 
+    height: 100vh;
+    grid-template-areas: 
+    "left up up"
+    "left center center-right"
+    "left down down";
+  }
+  .left { 
+
+    background:#212121;
+    grid-area: left; 
+}
+
+.center { 
+    background:#162733;
+    grid-area: center; 
+}
+.down {
+    background:#343434;
+     grid-area: down; 
+    }
+.center-right { 
+    grid-area: center-right; 
+    background:#162733;
+}
+.up { 
+    grid-area: up;
+    background:#162733;
+}
+hr.verticalLine {
+    border-left: thick solid #ff0000;
+  }
+
+.text1{
+
+ color: rgb(0, 0, 0);
+ font-family: arial;
+ font-size:12px;
+}

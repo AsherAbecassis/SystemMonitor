@@ -1,0 +1,124 @@
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import React, { useState } from 'react';
+import './Nav.css';
+function NavBar() {
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+  
+  return (
+    <>
+
+
+{/* <div className="area">
+
+<h1>x</h1>
+        </div> */}
+    
+
+       
+    <nav className="main-menu">
+            <ul>
+                <li>
+                    <a href="https://jbfarrow.com">
+                        <i className="fa fa-home fa-2x"></i>
+                        <span className="nav-text">
+                           Community Dashboard
+                        </span>
+                    </a>
+                  
+                </li>
+                <li className="has-subnav">
+                    <a href="#">
+                        <i className="fa fa-globe fa-2x"></i>
+                        <span className="nav-text">
+                            Global Surveyors
+                        </span>
+                    </a>
+                    
+                </li>
+                <li className="has-subnav">
+                    <a href="#">
+                       <i className="fa fa-comments fa-2x"></i>
+                        <span className="nav-text">
+                            Group Hub Forums
+                        </span>
+                    </a>
+                    
+                </li>
+                <li className="has-subnav">
+                    <a href="#">
+                       <i className="fa fa-camera-retro fa-2x"></i>
+                        <span className="nav-text">
+                            Survey Photos
+                        </span>
+                    </a>
+                   
+                </li>
+                <li>
+                    <a href="#">
+                        <i className="fa fa-film fa-2x"></i>
+                        <span className="nav-text">
+                            Surveying Tutorials
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i className="fa fa-book fa-2x"></i>
+                        <span className="nav-text">
+                           Surveying Jobs
+                        </span>
+                    </a>
+                </li>
+                <li>
+                   <a href="#">
+                       <i className="fa fa-cogs fa-2x"></i>
+                        <span className="nav-text">
+                            Tools & Resources
+                        </span>
+                    </a>
+                </li>
+                <li>
+                   <a href="#">
+                        <i className="fa fa-map-marker fa-2x"></i>
+                        <span className="nav-text">
+                            Member Map
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                       <i className="fa fa-info fa-2x"></i>
+                        <span className="nav-text">
+                            Documentation
+                        </span>
+                    </a>
+                </li>
+                
+            </ul>
+
+            <ul className="logout">
+                <li>
+                   <a href="#">
+                         <i className="fa fa-power-off fa-2x"></i>
+                        <span className="nav-text">
+                            Logout
+                        </span>
+                    </a>
+                </li>  
+            </ul>
+        </nav>
+    
+        </>
+  );
+}
+
+export default NavBar;

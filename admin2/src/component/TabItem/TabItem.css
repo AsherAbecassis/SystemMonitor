@@ -1,0 +1,14 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+.text-ip {
+
+ color: rgb(170, 255, 0);
+ font-family: arial;
+ font-size: 14px;
+}
+.text-over{
+    color: rgb(255, 255, 255);
+    font-family: arial;
+    font-size: 14px;
+}
