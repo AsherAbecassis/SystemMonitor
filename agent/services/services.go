@@ -13,6 +13,7 @@ import (
 
 	"github.com/asher/model"
 	"github.com/shirou/gopsutil/disk"
+	"github.com/shirou/gopsutil/docker"
 	"github.com/shirou/gopsutil/host"
 	"github.com/shirou/gopsutil/load"
 	"github.com/shirou/gopsutil/process"
@@ -33,6 +34,11 @@ func GetTemperatureStat() []host.TemperatureStat {
 
 	return tempetature
 
+}
+
+func GetDockerStatsServices() []docker.CgroupDockerStat {
+	dockerStats, _ := docker.GetDockerStat()
+	return dockerStats
 }
 
 func GetTotalProcesses() []model.ProcessList {

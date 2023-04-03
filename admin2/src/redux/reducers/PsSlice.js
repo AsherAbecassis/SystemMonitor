@@ -8,7 +8,7 @@ export const getPs = createAsyncThunk(
     
     try {
       const { data } = await axios.get(
-        "http://10.100.102.85:8081/getPs"
+        "http://192.168.14.42:8081/getPs"
       );
       return data;
     } catch (error) {

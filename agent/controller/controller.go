@@ -8,6 +8,20 @@ import (
 	"github.com/asher/services"
 )
 
+func GetDockerStats(w http.ResponseWriter, r *http.Request) {
+
+	fmt.Println("docker stats")
+	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Access-Control-Allow-Headers", "*")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "GET")
+	w.WriteHeader(http.StatusOK)
+	stats := services.GetDockerStatsServices()
+
+	json.NewEncoder(w).Encode(stats)
+
+}
+
 func GetMemoryUsage(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Memory endPoint")
 	w.Header().Set("Content-Type", "application/json")

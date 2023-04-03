@@ -24,6 +24,15 @@ func getJson(url string, target interface{}) error {
 	return json.NewDecoder(r.Body).Decode(target)
 }
 
+func GetDockerStatsServices(url string) []model.DockerStats {
+	foo1 := new([]model.DockerStats) // or &Foo{}
+	getJson(url+"/GetDockerStats", foo1)
+
+	// var slice []model.InfoStat
+	// slice = append(slice, *foo1)
+	return *foo1
+}
+
 func GetHostInfo(url string) *model.InfoStat {
 	foo1 := new(model.InfoStat) // or &Foo{}
 	getJson(url+"/GetPcInfo", foo1)

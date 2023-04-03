@@ -3,7 +3,7 @@ import React from "react";
 import { getInfo } from "../redux/reducers/HostInfoSlice";
 import { useSelector, useDispatch } from "react-redux";
 import NavBar from "../component/NavBar/NavBar";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 import "./Home.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -67,7 +67,7 @@ function Home() {
               >
                 <div className="card-header">Docker</div>
                 <div className="card-body">
-                  <h5 className="card-title">Primary card title</h5>
+                  <h5 className="card-title">99</h5>
                   <p className="card-text">Some</p>
                 </div>
               </div>

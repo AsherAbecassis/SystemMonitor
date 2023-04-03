@@ -21,5 +21,6 @@ func main() {
 	r.HandleFunc("/GetTemperature", controller.GetTemperature).Methods("GET")
 	r.HandleFunc("/GetPcInfo", controller.GetPcInfo).Methods("GET")
 	r.HandleFunc("/GetDiskInfo", controller.GetDiskInfo).Methods("GET")
+	r.HandleFunc("/GetDockerStats", controller.GetDockerStats).Methods("GET")
 	log.Fatal(http.ListenAndServe(":8081", r))
 }

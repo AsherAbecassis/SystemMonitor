@@ -1,27 +1,20 @@
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import TabItem from "../TabItem/TabItem";
+import DockerStats from "../DockerStats/DockerStats";
 
 function TabInfo() {
   return (
     <Tabs
       defaultActiveKey="Info"
       id="uncontrolled-tab-example"
-      className="mb-3"
+      className="mb-2"
     >
       <Tab eventKey="Info" title="Info">
-        <div
-          className="card text-bg-primary mb-2"
-          style={{ "max-width": "100rem" }}
-        >
-          <div className="card-header">Docker</div>
-          <div className="card-body">
-            <TabItem />
-          </div>
-        </div>
+        <TabItem />
       </Tab>
-      <Tab eventKey="PS" title="PS">
-        <p>ss</p>
+      <Tab eventKey="docker" title="docker">
+        <DockerStats />
       </Tab>
       <Tab eventKey="Task" title="Task">
         <p>ss</p>

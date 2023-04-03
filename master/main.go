@@ -16,6 +16,7 @@ func main() {
 
 	r.HandleFunc("/GetAgents", controller.GetAgents).Methods("GET")
 	r.HandleFunc("/NetworkScanning", controller.GetNetworkClinet).Methods("GET")
+	r.HandleFunc("/GetDockerStats", controller.GetDockerStats).Methods("GET")
 
-	log.Fatal(http.ListenAndServe(":8080", r))
+	log.Fatal(http.ListenAndServe(":8089", r))
 }

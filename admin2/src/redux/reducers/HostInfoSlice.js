@@ -8,7 +8,7 @@ export const getInfo = createAsyncThunk(
     
     try {
       const { data } = await axios.get(
-        "http://localhost:8080/GetAgents"
+        "http://localhost:8089/GetAgents"
       );
       return data;
     } catch (error) {

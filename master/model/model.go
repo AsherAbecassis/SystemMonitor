@@ -43,3 +43,12 @@ type InfoStat struct {
 	InodesUsedPercent    float64 `json:"inodesUsedPercent"`
 	MemPercent           int     `json:"mempercent"`
 }
+
+
+type DockerStats struct {
+	ContainerID string `json:"containerID"`
+	Name        string `json:"name"`
+	Image       string `json:"image"`
+	Status      string `json:"status"`
+	Running     bool   `json:"running"`
+}

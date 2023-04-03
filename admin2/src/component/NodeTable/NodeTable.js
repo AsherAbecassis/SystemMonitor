@@ -8,6 +8,7 @@ function DarkExample() {
   const host = useSelector((state) => state.info);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  
   const handleClick = (event, hostip) => {
     // dispatch(getIp());
     dispatch(getInfo());

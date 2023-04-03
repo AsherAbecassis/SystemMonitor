@@ -9,6 +9,20 @@ import (
 	"github.com/asher/services"
 )
 
+func GetDockerStats(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Docker stats endPoint")
+	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Access-Control-Allow-Headers", "*")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "GET")
+
+	pclist := []string{"http://192.168.14.42:8081"}
+
+	stats := services.GetDockerStatsServices(pclist[0])
+
+	json.NewEncoder(w).Encode(stats)
+}
+
 func GetAgents(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("GetAgents endPoint")
 	w.Header().Set("Content-Type", "application/json")
@@ -24,7 +38,7 @@ func GetAgents(w http.ResponseWriter, r *http.Request) {
 	// 	},
 	// }
 
-	pclist := []string{"http://10.100.102.85:8081", "http://10.100.102.87:8081"}
+	pclist := []string{"http://192.168.14.42:8081"}
 
 	var infoList []model.InfoStat
 
