@@ -7,77 +7,101 @@ import Button from "react-bootstrap/Button";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { BsArrowRepeat } from "react-icons/bs";
-import { FaDocker ,FaNetworkWired } from "react-icons/fa";
+import { FaDocker, FaNetworkWired } from "react-icons/fa";
+import React, { useState } from "react";
 
 function DockerStats() {
   const stats = useSelector((state) => state.stats);
+  const [show, setShow] = useState(false);
   const dispatch = useDispatch();
   const params = useParams();
   useEffect(() => {
-    dispatch(getDockerStats());
-  }, []);
+    dispatch(getDockerStats(params.hostip));
+    console.log(stats.data);
+
+    if (stats.data != "undefined") {
+      setShow(true);
+    }
+  }, [params.hostip]);
   const handleClick = (event, hostip) => {
     // dispatch(getIp());
-    dispatch(getDockerStats());
+    dispatch(getDockerStats(params.hostip));
     console.log(params.hostip);
     // navigate("/" + hostip);
   };
   return (
     <>
-      <div className="">
-        <div className="row p-2">
-          <div className="col">
-            <p className="text-ip "><FaNetworkWired/> {params.hostip}</p>
-            <div
-              className="card text-bg-primary mb-3"
-              style={{ "max-width": "18rem" }}
-            >
-              <div className="text1 card-header">
-                {" "}
-                <FaDocker /> Docker Stats
+      {show && (
+        <div className="">
+          <div className="row p-2">
+            <div className="col">
+              <p className="text-ip ">
+                <FaNetworkWired /> {params.hostip}
+              </p>
+              <div
+                className="card text-bg-primary mb-3"
+                style={{ "max-width": "12rem" }}
+              >
+                <div className="text1 card-header">
+                  {" "}
+                  <FaDocker /> Docker Stats
+                </div>
+                <div className="text1 card-body">
+                  <h5 className="card-title">{stats.data.length}</h5>
+                  <p className="card-text">container</p>
+                </div>
               </div>
-              <div className="text1 card-body">
-                <h5 className="card-title">{stats.data.length}</h5>
-                <p className="card-text">container</p>
+              <div
+                className="card text-bg-primary mb-3"
+                style={{ "max-width": "12rem" }}
+              >
+                <div className="text1 card-header">
+                  {" "}
+                  <FaDocker /> Docker Stats
+                </div>
+                <div className="text1 card-body">
+                  <h5 className="card-title">{stats.data.length}</h5>
+                  <p className="card-text">container</p>
+                </div>
               </div>
+              <p></p>
             </div>
-            <p></p>
-          </div>
-          <div className="col-10">
-            <div class="panel panel-default">
-              <Button variant="primary" onClick={handleClick}>
-                <BsArrowRepeat />
-              </Button>
-              <div className="tableFixHead text2">
-                <table className="table2 ">
-                  <thead>
-                    <tr>
-                      <th className="col-xs-8">Name</th>
-                      <th className="col-xs-8">status</th>
-                      <th className="col-xs-2">containerID</th>
-                      <th className="col-xs-2">image</th>
-
-                      <th className="col-xs-2">running</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {stats.data.map((row, index) => (
+            <div className="col-10">
+              <div class="panel panel-default">
+                <Button variant="primary" onClick={handleClick}>
+                  <BsArrowRepeat />
+                </Button>
+                <div className="tableFixHead text2">
+                  <table className="table2 ">
+                    <thead>
                       <tr>
-                        <td className=" col-xs-8">{row.name}</td>
-                        <td className="col-xs-8">{row.status}</td>
-                        <td className="col-xs-8">{row.containerID}</td>
-                        <td className="col-xs-8 ">{row.image}</td>
+                        <th className="col-xs-8">Name</th>
+                        <th className="col-xs-8">status</th>
+                        <th className="col-xs-2">containerID</th>
+                        <th className="col-xs-2">image</th>
 
-                        <td className="col-xs-8">{row.running}</td>
+                        <th className="col-xs-2">running</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody>
+                      {stats.data.map((row, index) => (
+                        <tr>
+                          <td className=" col-xs-8">{row.name}</td>
+                          <td className="col-xs-8">{row.status}</td>
+                          <td className="col-xs-8">{row.containerID}</td>
+                          <td className="col-xs-8 ">{row.image}</td>
+
+                          <td className="col-xs-8">{row.running}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 }

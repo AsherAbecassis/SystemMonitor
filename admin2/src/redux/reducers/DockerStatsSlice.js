@@ -4,10 +4,16 @@ import axios from "axios";
 export const getDockerStats = createAsyncThunk(
   "getDockerStats",
   async (object, { getState, rejectWithValue }) => {
-    console.log(getState());
-
+    console.log("--->>>", object);
+    const json = JSON.stringify({"ip":object});
     try {
-      const { data } = await axios.get("http://localhost:8089/GetDockerStats");
+      const { data } = await axios.post(
+        "http://localhost:8089/PostDockerStats",
+        json,
+        {
+    
+        }
+      );
       return data;
     } catch (error) {
       rejectWithValue(error.response);

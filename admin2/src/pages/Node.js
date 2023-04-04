@@ -4,14 +4,14 @@ import { getInfo } from "../redux/reducers/HostInfoSlice";
 import { useSelector, useDispatch } from "react-redux";
 import NavBar from "../component/NavBar/NavBar";
 
-import "./Home.css";
+// import "./Home.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import NodeTable from "../component/NodeTable/NodeTable";
 import TabInfo from "../component/TabInfo/TabInfo";
 import Card from "react-bootstrap/Card";
-function Home() {
+function Node() {
   const info = useSelector((state) => state.info);
   const dispatch = useDispatch();
 
@@ -27,26 +27,13 @@ function Home() {
 
   return (
     <>
- 
-          {info.isSuccess ? (
-            <Container fluid>
-              <Row>
-                <div className="justify-content-center">
-                  <NodeTable />
-                  {/* <TabInfo /> */}
-                </div>
-              </Row>
-            </Container>
-          ) : (
-            <p>empty</p>
-          )}
-      
-        {/* <div className="down">
+      {info.isSuccess ? <TabInfo /> : <p>empty</p>}
+
+      {/* <div className="down">
           <TabInfo />
         </div> */}
-     
     </>
   );
 }
 
-export default Home;
+export default Node;

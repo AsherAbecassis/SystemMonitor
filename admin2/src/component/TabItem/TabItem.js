@@ -46,7 +46,7 @@ function TabItem() {
               <div className="col-sm-1 ">
                 <Card.Img variant="top" src={img} />
               </div>
-              <div className="col-2 text-white text-over">
+              <div className="col-2  text-over">
                 <div className="text-ip">
                   <h2><FaNetworkWired/> {obj.hostip}</h2>
                 </div>
@@ -64,7 +64,7 @@ function TabItem() {
                   <div className="row">
                     <div className="col  p-1">
                       <ProgressBar
-                        now={obj.free / 1000000000}
+                        now={Math.floor(obj.total / 1000000000)- Math.floor(obj.free / 1000000000)}
                         label={"Disk"}
                         max={Math.floor(obj.total / 1000000000)}
                         animated={true}
